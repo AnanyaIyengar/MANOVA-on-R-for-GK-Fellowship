@@ -16,7 +16,7 @@ library(biotools)
 library(DescTools)
 library(rstatix)
 library(lmtest)
-
+library(effectsize)
 
 combined$group<-factor(combined$group, levels = c("before", "after"), ordered = TRUE)
 
@@ -51,6 +51,7 @@ summary(basicmanova, intercept = TRUE, test = "Wilks")
 summary(basicmanova, intercept = TRUE, test = "Hotelling")
 basicmanova$coefficients
 summary.aov(basicmanova)
+effectsize::eta_squared(basicmanova)
 
 #ANOVA Models to include Dummies, Interaction terms and Bonferroni Confidence Levels (0.05/4 = 0.125)
 
