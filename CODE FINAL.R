@@ -53,6 +53,10 @@ basicmanova$coefficients
 summary.aov(basicmanova)
 effectsize::eta_squared(basicmanova)
 
+t.test(combined$impersonation ~ combined$group, var.equal = TRUE)
+t.test(combined$conspiracy ~ combined$group, var.equal = TRUE)
+t.test(combined$control ~ combined$group, var.equal = TRUE)
+
 #ANOVA Models to include Dummies, Interaction terms and Bonferroni Confidence Levels (0.05/4 = 0.125)
 
 impersonation_anova<-lm(impersonation~as.factor(group)+age+gender+education+intuition+factcheck+LeftRight+LibAuth+group*LeftRight+group*LibAuth, data=combined)
